@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function getImagesFromR2() {
     // URL đến API từ Cloudflare R2
-    const baseUrl = 'https://dash.cloudflare.com/a24ed95912e33d89079396931e498bbf/r2/default/buckets/images';
+    const baseUrl = 'https://pub-2ff7ec69b90f4a739fae5c7852ab6e6a.r2.dev';
     
     // Danh sách URL ảnh (Thay đổi nếu bạn có một cách khác để lấy danh sách)
     const imageFilenames = [
