@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // URL đến API từ Cloudflare R2
     const baseUrl = 'https://pub-2ff7ec69b90f4a739fae5c7852ab6e6a.r2.dev';
     
-    // Danh sách URL ảnh (Thay đổi nếu bạn có một cách khác để lấy danh sách)
+    // Danh sách URL ảnh
     const imageFilenames = [
       { file: baseUrl + 'image1.jpg', title: 'Image 1' },
       { file: baseUrl + 'image2.jpg', title: 'Image 2' }
