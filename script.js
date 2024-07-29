@@ -5,49 +5,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('main');
 
   async function getImagesFromR2() {
-    // URL đến API từ Cloudflare R2
-    const baseUrl = 'https://pub-2ff7ec69b90f4a739fae5c7852ab6e6a.r2.dev';
-    
-    // Danh sách URL ảnh
-    const imageFilenames = [
-      { file: baseUrl + 'image1.jpg', title: 'Image 1' },
-      { file: baseUrl + 'image2.jpg', title: 'Image 2' }
-    ];
-
-    return imageFilenames;
+    try {
+      // Gọi API từ server để lấy danh sách hình ảnh
+      const response = await fetch('http://localhost:3000/api/images');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      // Chuyển đổi phản hồi thành định dạng JSON
+      const images = await response.json();
+      return images;
+    } catch (error) {
+      console.error('Error fetching images:', error);
+      return []; // Trả về mảng rỗng nếu có lỗi
+    }
   }
 
   getImagesFromR2().then(artworks => {
     artworks.forEach(art => {
+      // Tạo một div container cho mỗi hình ảnh
       const container = document.createElement('div');
       container.classList.add('image-container');
 
+      // Tạo phần tử hình ảnh và thiết lập thuộc tính
       const imgElement = document.createElement('img');
-      imgElement.src = art.file;
+      imgElement.src = art.file; // URL hình ảnh từ API
       imgElement.alt = art.title;
       imgElement.dataset.title = art.title;
 
+      // Thêm hình ảnh vào container và container vào gallery
       container.appendChild(imgElement);
       gallery.appendChild(container);
     });
 
-    // Add event listeners cho image containers sau khi được tạo
+    // Thêm sự kiện click cho các container hình ảnh sau khi chúng đã được tạo
     setupImageZoom();
   });
 
-  // Các sự kiện khác
+  // Xử lý sự kiện click cho hamburger menu
   hamburgerMenu.addEventListener('click', () => {
     hamburgerMenu.classList.toggle('active');
     sidebar.classList.toggle('active');
     main.classList.toggle('dimmed');
   });
 
-  // Create fullscreen overlay
+  // Tạo overlay toàn màn hình để phóng to hình ảnh
   const fullscreenOverlay = document.createElement('div');
   fullscreenOverlay.className = 'fullscreen-overlay';
   document.body.appendChild(fullscreenOverlay);
 
-  // Create zoom container and its contents
+  // Tạo container zoom và các nội dung của nó
   const zoomContainer = document.createElement('div');
   zoomContainer.className = 'zoom-container';
   fullscreenOverlay.appendChild(zoomContainer);
@@ -66,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   zoomContainer.appendChild(closeButton);
 
   function setupImageZoom() {
-    // Add click event to image containers
+    // Thêm sự kiện click cho các container hình ảnh
     const imageContainers = document.querySelectorAll('.image-container');
     imageContainers.forEach(container => {
       container.addEventListener('click', function() {
@@ -78,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close zoom functionality
+  // Xử lý sự kiện đóng zoom
   function closeZoom() {
     fullscreenOverlay.classList.remove('active');
   }
