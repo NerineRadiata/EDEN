@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 // Thiết lập AWS SDK để sử dụng với Cloudflare R2
 const s3 = new AWS.S3({
-  endpoint: 'https://dash.cloudflare.com/a24ed95912e33d89079396931e498bbf/r2/default/buckets/images',
+  endpoint: 'https://a24ed95912e33d89079396931e498bbf.r2.cloudflarestorage.com/images',
   accessKeyId: process.env.R2_ACCESS_KEY_ID,
   secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
   s3ForcePathStyle: true,
