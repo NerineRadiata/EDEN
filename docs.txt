@@ -1,0 +1,44 @@
+### HTML
+
+1. khai báo (tiêu đề) & ngôn ngữ:
+
+*	<!DOCTYPE html>: Khai báo loại tài liệu HTML5.
+
+*	<html lang="en">: Thẻ gốc của tài liệu HTML với thuộc tính lang xác định ngôn ngữ là tiếng Anh.
+
+*	<meta charset="UTF-8">: Xác định bảng mã ký tự là UTF-8 để hỗ trợ các ký tự đặc biệt.
+
+*	<meta name="viewport" content="width=device-width, initial-scale=1.0">: Thiết lập để trang web hiển thị tốt trên các thiết bị di động.
+
+*	<title>Eden</title>: Đặt tiêu đề của trang web, hiển thị trên thanh tiêu đề của trình duyệt.
+
+*	<link rel="stylesheet" href="style.css">: Liên kết tới tệp CSS để định dạng trang web.
+------------------------------------
+
+2. Phần thân (<body>):
+
+*	<header>: Phần đầu của trang web, chứa logo và thanh điều hướng.
+
+*	<main>: Nội dung chính của trang web, bao gồm phần giới thiệu và gallery.
+
+*	<footer>: Chân trang, chứa thông tin bản quyền và liên kết khác.
+
+*	<script src="script.js"></script>: Liên kết tới tệp JavaScript để thêm các tính năng động (nếu có).
+
+### CSS
+
+**	Định dạng về giao diện & thẩm mỹ
+------------------------------------
+
+### JS
+
+*	document.addEventListener('DOMContentLoaded', () => { ... }): Đảm bảo rằng mã JavaScript sẽ được thực thi khi tài liệu HTML đã được tải hoàn toàn.
+
+*	const artGrid = document.querySelector('.art-grid');: Lấy phần tử có lớp .art-grid từ tài liệu HTML để sau này thêm nội dung vào đó.
+
+*	artworks.forEach(art => { ... });: Duyệt qua mảng artworks và tạo một phần tử <div> mới cho mỗi artwork, thêm hình ảnh và tiêu đề vào và sau đó thêm vào artGrid.
+
+
+
+
+ 

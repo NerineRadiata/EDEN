@@ -1,0 +1,66 @@
++----------------------------------------------------+
+|                    Header (70px)                   |
+| [Menu] [Logo]        [Search]        [Login Button]|
++----------------------------------------------------+
+|        |                                           |
+|        |  [Category Bar (sticky, top: 70px)]       |
+|        |  +----------------------------------------+
+|        |  |                                        |
+|        |  |           Main Container                 |
+|        |  |                                        |
+|        |  |  +--------+  +--------+  +--------+    |
+|Sidebar |  |  |        |  |        |  |        |    |
+|(200px) |  |  | Image  |  | Image  |  | Image  |    |
+|        |  |  |        |  |        |  |        |    |
+|        |  |  +--------+  +--------+  +--------+    |
+|        |  |                                        |
+|        |  |  +--------+  +--------+  +--------+    |
+|        |  |  |        |  |        |  |        |    |
+|        |  |  | Image  |  | Image  |  | Image  |    |
+|        |  |  |        |  |        |  |        |    |
+|        |  |  +--------+  +--------+  +--------+    |
+|        |  |                                        |
++----------------------------------------------------+
+|                      Footer                        |
++----------------------------------------------------+
+
+Key Dimensions and Specifications:
+
+1. Header:
+   - Height: 70px
+   - Position: Fixed at top
+   - Z-index: 1000
+
+2. Sidebar:
+   - Width: 200px
+   - Height: calc(100vh - 70px)
+   - Position: Fixed, starts below header
+   - Left position when active: 0
+   - Left position when inactive: -200px
+
+3. Category Bar:
+   - Position: Sticky
+   - Top: 70px (just below header)
+   - Z-index: 10
+   - Padding: 10px 0
+
+4. Main Content:
+   - Margin-top: 70px (to account for fixed header)
+   - Padding: 0 2rem (left and right)
+
+5. Gallery:
+   - Display: Grid
+   - Grid template: repeat(auto-fill, minmax(250px, 1fr))
+   - Gap: 6px
+   - Padding-top: 10px
+
+6. Images:
+   - Width: 100%
+   - Height: 100%
+   - Object-fit: cover
+
+7. Footer:
+   - Padding: 1rem
+   - Margin-top: auto (pushes to bottom)
+
+Note: This layout is responsive. The sidebar can be toggled, and the main content adjusts accordingly. The category bar is horizontally scrollable if needed.

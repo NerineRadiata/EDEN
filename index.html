@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Art Station</title>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <div class="header-left">
+      <div class="menu-toggle">
+        <div class="hamburger-menu" onclick="toggleSidebar()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="logo">
+        <img src="logo/logo_main.jpg" alt="Logo">
+      </div>
+    </div>
+    <div class="header-center">
+      <form class="search-form">
+        <input type="text" placeholder="Search...">
+      </form>
+    </div>
+    <div class="header-right">
+      <a href="#" class="login-button">Login</a>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Popular</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+    </nav>
+    <div class="extensions">
+      <h3></h3>
+      <ul>
+        <li><a href="#">Commissions</a></li>
+        <li><a href="#">Artists</a></li>
+        <li><a href="#">Upload your works</a></li>
+        <li><a href="#">Join Membership</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Get online support/ Contact us</a></li>
+      </ul>
+    </div>
+  </aside>  
+
+  <main>
+    <div class="category-bar">
+      <button class="active">All</button>
+      <button>Character Design</button>
+      <button>Fantasy-Mystery</button>
+      <button>Sci-fi</button>
+      <button>Wallpapers</button>
+      <button>Cell Shade</button>
+    </div>
+    
+    <div class="gallery" id="gallery">
+      <!-- Gallery items will be dynamically added here -->
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2024 Eden | All rights reserved
+  </footer>
+  <script src="script.js"></script>
+  <script> src="server.js"</script>
+</body>
+</html>

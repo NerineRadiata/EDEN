@@ -1,0 +1,284 @@
+/* CSS reset và layout chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0e0e0e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  height: 70px;
+}
+
+.header-left, .header-center, .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-center {
+  flex: 2;
+}
+
+.header-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-menu {
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.hamburger-menu div {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.hamburger-menu div:nth-child(1) {
+  top: 0;
+}
+
+.hamburger-menu div:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-menu div:nth-child(3) {
+  bottom: 0;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.search-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.login-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #3a3a3a;
+  border-radius: 4px;
+}
+
+.sidebar {
+  z-index: 999;
+  width: 200px;
+  background-color: #1a1a1b;
+  padding: 1rem;
+  position: fixed;
+  top: 70px;
+  left: -200px;
+  height: calc(100vh - 70px);
+  transition: left 0.4s ease;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+
+/* Main content styles */
+main {
+  margin-left: 0;
+  padding: 0 2rem;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease, filter 0.3s ease;
+  margin-top: 70px;
+}
+
+main.sidebar-active { margin-left: 200px; }
+main.dimmed { filter: brightness(0.7); }
+
+
+/* Fullscreen zoom (pics in main events) functionality styles */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.fullscreen-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.zoom-container {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoomed-image {
+  max-width: 100%;
+  max-height: 80%;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.image-info {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+main.dimmed {
+  filter:opacity(70%);
+}
+
+.image-container {
+  cursor: pointer;
+}
+
+.sidebar nav ul,
+.sidebar .extensions ul {
+  list-style: none;
+}
+
+.sidebar nav ul li,
+.sidebar .extensions ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar nav ul li a,
+.sidebar .extensions ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.extensions h3 {
+  margin: 1rem 0;
+}
+
+.category-bar {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  align-items: center;
+  position: sticky;
+  top: 70px;
+  background-color: #0e0e0e;
+  z-index: 10;
+}
+
+.category-bar button {
+  background-color: #2a2a2a;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-bar button:first-child {
+  margin-left: 0;
+}
+
+.category-bar button.active {
+  background-color: #3a3a3a;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 6px;
+  padding-top: 10px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+
+.image-container img.zoomed {
+  transform: scale(1.2);
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
